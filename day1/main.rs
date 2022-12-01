@@ -15,7 +15,12 @@ const INPUT: &str = include_str!("./input.txt");
 //10000";
 
 fn main() {
-    let mut calories_per_elf = INPUT
+    println!("Day 1.1: {}", part1());
+    println!("Day 1.2: {}", part2());
+}
+
+fn part1() -> i32 {
+    INPUT
         .split("\n\n")
         .map(|s| {
             s.trim()
@@ -23,9 +28,20 @@ fn main() {
                 .map(|c| c.parse::<i32>().unwrap_or(0))
                 .sum::<i32>()
         })
-        .collect::<Vec<i32>>();
-    calories_per_elf.sort();
-    calories_per_elf.reverse();
-    println!("Day 1.1: {}", calories_per_elf.iter().max().unwrap());
-    println!("Day 1.2: {}", calories_per_elf[..3].iter().sum::<i32>());
+        .max()
+        .unwrap()
+}
+
+fn part2() -> i32 {
+    let mut unsorted = INPUT
+        .split("\n\n")
+        .map(|s| {
+            s.trim()
+                .split("\n")
+                .map(|c| c.parse::<i32>().unwrap_or(0))
+                .sum::<i32>()
+        }).collect::<Vec<i32>>();
+    unsorted.sort();
+    unsorted.reverse();
+    unsorted[..3].iter().sum()
 }
