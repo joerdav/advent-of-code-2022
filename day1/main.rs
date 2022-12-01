@@ -21,11 +21,10 @@ fn main() {
 
 fn part1() -> i32 {
     INPUT
-        .trim()
         .split("\n\n")
         .map(|s| {
             s .split("\n")
-                .map(|c| c.parse::<i32>().unwrap())
+                .map(|c| c.parse::<i32>().unwrap_or_default())
                 .sum::<i32>()
         })
         .max()
@@ -34,11 +33,10 @@ fn part1() -> i32 {
 
 fn part2() -> i32 {
     let mut unsorted = INPUT
-        .trim()
         .split("\n\n")
         .map(|s| {
             s.split("\n")
-                .map(|c| c.parse::<i32>().unwrap())
+                .map(|c| c.parse::<i32>().unwrap_or_default())
                 .sum::<i32>()
         }).collect::<Vec<i32>>();
     unsorted.sort();
