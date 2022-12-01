@@ -1,27 +1,17 @@
 const INPUT: &str = include_str!("./input.txt");
-//const INPUT: &str = "1000
-//2000
-//3000
-
-//4000
-
-//5000
-//6000
-
-//7000
-//8000
-//9000
-
-//10000";
+const TEST_INPUT: &str = include_str!("./test.txt");
 
 fn main() {
-    println!("Day 1.1: {}", part1());
-    println!("Day 1.2: {}", part2());
+    println!("1.1");
+    println!("  real: {}", part1(INPUT));
+    println!("  test: {}", part1(TEST_INPUT));
+    println!("1.2");
+    println!("  real: {}", part2(INPUT));
+    println!("  test: {}", part2(TEST_INPUT));
 }
 
-fn part1() -> i32 {
-    INPUT
-        .split("\n\n")
+fn part1(i: &str) -> String {
+    i.split("\n\n")
         .map(|s| {
             s .split("\n")
                 .map(|c| c.parse::<i32>().unwrap_or_default())
@@ -29,10 +19,11 @@ fn part1() -> i32 {
         })
         .max()
         .unwrap()
+        .to_string()
 }
 
-fn part2() -> i32 {
-    let mut unsorted = INPUT
+fn part2(i: &str) -> String {
+    let mut unsorted = i
         .split("\n\n")
         .map(|s| {
             s.split("\n")
@@ -41,5 +32,5 @@ fn part2() -> i32 {
         }).collect::<Vec<i32>>();
     unsorted.sort();
     unsorted.reverse();
-    unsorted[..3].iter().sum()
+    unsorted[..3].iter().sum::<i32>().to_string()
 }
