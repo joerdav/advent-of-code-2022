@@ -1,7 +1,7 @@
 const INPUT: &str = include_str!("./input.txt");
 const TEST_INPUT: &str = include_str!("./test.txt");
 
-fn main() {
+pub fn run() {
     println!("1.1");
     println!("  real: {}", part1(INPUT));
     println!("  test: {}", part1(TEST_INPUT));
@@ -10,10 +10,10 @@ fn main() {
     println!("  test: {}", part2(TEST_INPUT));
 }
 
-fn part1(i: &str) -> String {
-    i.to_string()
+fn part1(_i: &str) -> String {
+    String::from("")
 }
 
-fn part2(i: &str) -> String {
-    i.to_string()
+fn part2(_i: &str) -> String {
+    String::from("")
 }

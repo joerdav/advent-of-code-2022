@@ -1,7 +1,7 @@
 const INPUT: &str = include_str!("./input.txt");
 const TEST_INPUT: &str = include_str!("./test.txt");
 
-fn main() {
+pub fn run() {
     println!("3.1");
     println!("  real: {}", part1(INPUT));
     println!("  test: {}", part1(TEST_INPUT));
