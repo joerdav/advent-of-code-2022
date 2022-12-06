@@ -11,6 +11,13 @@ pub fn run() {
     println!("  real: {}", part2(INPUT));
     println!("  test: {}", part2(TEST_INPUT));
 }
+fn part1(i: &str) -> String {
+    find_start(i, 4).to_string()
+}
+
+fn part2(i: &str) -> String {
+    find_start(i, 14).to_string()
+}
 fn uniq(cs: &[char]) -> bool {
     let mut h = HashSet::new();
     cs.iter().all(|x| h.insert(x))
@@ -22,11 +29,4 @@ fn find_start(i: &str, window_size: usize) -> usize {
         .enumerate()
         .find_map(|(i, c)| if uniq(c) { Some(i+c.len()) } else { None })
         .unwrap()
-}
-fn part1(i: &str) -> String {
-    find_start(i, 4).to_string()
-}
-
-fn part2(i: &str) -> String {
-    find_start(i, 14).to_string()
 }
